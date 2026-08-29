@@ -515,15 +515,6 @@ img {
 
 .product-image {
     aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background-color: var(--color-cream-dark);
-}
-
-.product-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .product-image .image-placeholder {
@@ -591,19 +582,66 @@ img {
 
 
 /* =========================
-   メニュータブ
-   （menu.html 等、他ページでのカテゴリー切り替えタブ用）
+   ページタイトル
+   （menu.html / access.html など下層ページの見出し用）
 ========================== */
+
+.page-title {
+    background-color: var(--color-navy);
+    background-image:
+        radial-gradient(circle at 12% 25%, rgba(200, 71, 42, 0.16), transparent 45%),
+        radial-gradient(circle at 88% 75%, rgba(200, 71, 42, 0.12), transparent 45%);
+    color: var(--color-white);
+    text-align: center;
+    padding: 4.5rem 1.5rem 3.5rem;
+}
+
+.page-title .section-heading-en {
+    justify-content: center;
+    color: var(--color-accent-light);
+}
+
+.page-title h1 {
+    color: var(--color-white);
+    margin-top: 0.6rem;
+    font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
+}
+
+.page-title p {
+    margin: 1rem 0 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.92rem;
+}
+
+
+/* =========================
+   メニュータブ
+   （menu.html でカテゴリーへのスクロール誘導に使用）
+========================== */
+
+.menu-tabs-wrap {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 10;
+    background-color: rgba(245, 239, 225, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-border);
+}
 
 .menu-tabs {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.7rem;
-    margin-bottom: 3rem;
+    gap: 0.6rem;
+    padding: 1.1rem 1rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
 .menu-tab {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
     padding: 0.6em 1.6em;
     border-radius: 999px;
     border: 1px solid var(--color-border);
@@ -621,6 +659,39 @@ img {
     background-color: var(--color-navy);
     border-color: var(--color-navy);
     color: var(--color-white);
+}
+
+
+/* =========================
+   カテゴリー別セクション（menu.html）
+========================== */
+
+.menu-category-section {
+    scroll-margin-top: calc(var(--header-height) + 70px);
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.menu-category-section:last-of-type {
+    border-bottom: none;
+}
+
+.menu-category-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.menu-category-heading h2 {
+    font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.8rem);
+}
+
+.menu-category-heading .menu-category-count {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
 }
 
 
@@ -713,6 +784,82 @@ img {
 .store-info-row a {
     color: var(--color-accent);
     font-weight: 600;
+}
+
+.access-section,
+.access-detail-section {
+    background-color: var(--color-cream);
+}
+
+.info-card {
+    height: 100%;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-soft);
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 25px -22px rgba(28, 46, 70, 0.4);
+}
+
+.info-card-header {
+    margin-bottom: 1.5rem;
+}
+
+.info-card-header .section-heading-en {
+    justify-content: flex-start;
+    margin-bottom: 0.4rem;
+}
+
+.info-card-header h2 {
+    font-size: clamp(1.5rem, 1.3rem + 0.7vw, 2rem);
+}
+
+.map-box {
+    overflow: hidden;
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-cream-dark);
+}
+
+.map-box iframe {
+    width: 100%;
+    min-height: 320px;
+    border: 0;
+    display: block;
+}
+
+.detail-list {
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.detail-row dt {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-navy);
+}
+
+.detail-row dd {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.simple-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-text);
+    line-height: 2;
+}
+
+.simple-list li::marker {
+    color: var(--color-accent);
 }
 
 
@@ -825,6 +972,22 @@ img {
     color: rgba(255, 255, 255, 0.5);
 }
 
+.footer-shop a {
+    display: inline-block;
+    color: var(--color-cream);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1.5px;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-shop a:hover,
+.footer-shop a:focus-visible {
+    color: var(--color-white);
+    opacity: 1;
+}
+
 
 /* =========================
    スマホ用レスポンシブ
@@ -889,5 +1052,25 @@ img {
         max-height: calc(100vh - var(--header-height));
         overflow-y: auto;
         z-index: 1020;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .about-text {
+        font-size: clamp(1.02rem, 0.95rem + 0.9vw, 1.12rem);
+        line-height: 1.9;
+        letter-spacing: 0.02em;
+    }
+
+    .about-text p {
+        margin-bottom: 1.1rem;
+    }
+}
+
+/* 電話番号目立つように */
+@media (max-width: 767.98px) {
+    .footer-shop a {
+        font-size: 1rem;
+        padding: 0.1rem 0;
     }
 }

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>弁当屋 あまね</title>
+    <meta name="description" content="弁当屋 あまねの公式ホームページです。手作りのお弁当を販売しています。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="header">
+        <div class="header-inner container-fluid">
+
+            <a href="index.html" class="logo-area">
+                <!-- ロゴ画像を入れる場合はここ -->
+                <!-- <img src="images/logo.png" alt="弁当屋 あまね"> -->
+                <span class="shop-mark">弁</span>
+                <span class="shop-name">弁当屋 あまね</span>
+            </a>
+
+            <!-- PC用ナビゲーション -->
+            <nav class="pc-nav">
+                <a href="index.html">HOME</a>
+                <a href="menu.html">MENU</a>
+                <a href="access.html">ACCESS</a>
+            </nav>
+
+            <!-- ハンバーガーボタン（Bootstrap Collapse を使用） -->
+            <button class="hamburger"
+                    id="hamburger"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileNav"
+                    aria-controls="mobileNav"
+                    aria-label="メニューを開く"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+        <!-- スマホ用メニュー（Bootstrap Collapse） -->
+        <nav class="mobile-nav collapse" id="mobileNav">
+            <a href="index.html">HOME</a>
+            <a href="menu.html">MENU</a>
+            <a href="access.html">ACCESS</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             ページタイトル
+        ========================== -->
+        <section class="page-title">
+            <span class="section-heading-en"><span class="knot-mark knot-mark-light" aria-hidden="true"></span>MENU</span>
+            <h1>メニュー</h1>
+            <p>手作りにこだわったお弁当と丼ものをご用意しています。</p>
+        </section>
+
+
+        <!-- =========================
+             カテゴリタブ
+        ========================== -->
+        <div class="menu-tabs-wrap">
+            <nav class="menu-tabs" aria-label="カテゴリー">
+                <a href="#bento" class="menu-tab is-active">お弁当</a>
+                <a href="#donburi" class="menu-tab">丼もの</a>
+            </nav>
+        </div>
+
+
+        <!-- =========================
+             お弁当
+        ========================== -->
+        <section class="menu-category-section" id="bento">
+            <div class="container">
+
+                <div class="menu-category-heading">
+                    <h2>お弁当</h2>
+                    <span class="menu-category-count">全3品</span>
+                </div>
+
+                <div class="row product-grid g-4">
+
+                    <!-- 商品カード：唐揚げ弁当 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card"
+                                 data-category="お弁当"
+                                 data-image="images/menu/bento01.jpg"
+                                 data-name="唐揚げ弁当"
+                                 data-price="780円（税込）"
+                                 data-description="ジューシーな唐揚げをたっぷり使用。">
+
+                            <button class="product-image-button"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#imageModal">
+                                <div class="product-image">
+                                    <div class="image-placeholder">
+                                        <span>商品写真</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="product-info">
+                                <span class="product-badge">おすすめ</span>
+                                <h3>唐揚げ弁当</h3>
+                                <p class="product-description">
+                                    ジューシーな唐揚げをたっぷり使用。
+                                </p>
+                                <p class="product-price">
+                                    780円<span>（税込）</span>
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+
+                    <!-- 商品カード：○○弁当 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card"
+                                 data-category="お弁当"
+                                 data-image="images/menu/bento02.jpg"
+                                 data-name="○○弁当"
+                                 data-price="850円（税込）"
+                                 data-description="○○をたっぷり使用した、当店おすすめのお弁当です。">
+
+                            <button class="product-image-button"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#imageModal">
+                                <div class="product-image">
+                                    <div class="image-placeholder">
+                                        <span>商品写真</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="product-info">
+                                <span class="product-badge">人気</span>
+                                <h3>○○弁当</h3>
+                                <p class="product-description">
+                                    ○○をたっぷり使用した、当店おすすめのお弁当です。
+                                </p>
+                                <p class="product-price">
+                                    850円<span>（税込）</span>
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+
+                    <!-- 商品カード：○○弁当 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card"
+                                 data-category="お弁当"
+                                 data-image="images/menu/bento03.jpg"
+                                 data-name="○○弁当"
+                                 data-price="900円（税込）"
+                                 data-description="ボリューム満点のお弁当です。">
+
+                            <button class="product-image-button"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#imageModal">
+                                <div class="product-image">
+                                    <div class="image-placeholder">
+                                        <span>商品写真</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="product-info">
+                                <h3>○○弁当</h3>
+                                <p class="product-description">
+                                    ボリューム満点のお弁当です。
+                                </p>
+                                <p class="product-price">
+                                    900円<span>（税込）</span>
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             丼もの
+        ========================== -->
+        <section class="menu-category-section" id="donburi">
+            <div class="container">
+
+                <div class="menu-category-heading">
+                    <h2>丼もの</h2>
+                    <span class="menu-category-count">全2品</span>
+                </div>
+
+                <div class="row product-grid g-4">
+
+                    <!-- 商品カード：○○丼 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card"
+                                 data-category="丼もの"
+                                 data-image="images/menu/don01.jpg"
+                                 data-name="○○丼"
+                                 data-price="700円（税込）"
+                                 data-description="○○を使った当店看板の丼ものです。">
+
+                            <button class="product-image-button"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#imageModal">
+                                <div class="product-image">
+                                    <div class="image-placeholder">
+                                        <span>商品写真</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="product-info">
+                                <h3>○○丼</h3>
+                                <p class="product-description">
+                                    ○○を使った当店看板の丼ものです。
+                                </p>
+                                <p class="product-price">
+                                    700円<span>（税込）</span>
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+
+                    <!-- 商品カード：○○丼 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card"
+                                 data-category="丼もの"
+                                 data-image="images/menu/don02.jpg"
+                                 data-name="○○丼"
+                                 data-price="750円（税込）"
+                                 data-description="○○をふんだんに使用した人気の丼です。">
+
+                            <button class="product-image-button"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#imageModal">
+                                <div class="product-image">
+                                    <div class="image-placeholder">
+                                        <span>商品写真</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="product-info">
+                                <span class="product-badge">人気</span>
+                                <h3>○○丼</h3>
+                                <p class="product-description">
+                                    ○○をふんだんに使用した人気の丼です。
+                                </p>
+                                <p class="product-price">
+                                    750円<span>（税込）</span>
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="footer-inner container">
+
+            <div class="footer-shop">
+                <!-- ロゴを追加する場合 -->
+                <!--
+                <img src="images/logo.png" alt="弁当屋 あまね">
+                -->
+                <h2>弁当屋 あまね</h2>
+
+                <p>
+                    〒594-0006<br>
+                    大阪府和泉市尾井町1丁目1-41
+                </p>
+
+                <p>TEL：090-9880-4212</p>
+            </div>
+
+
+            <nav class="footer-nav">
+                <a href="index.html">HOME</a>
+                <a href="menu.html">MENU</a>
+                <a href="access.html">ACCESS</a>
+            </nav>
+
+        </div>
+
+
+        <div class="copyright">
+            <p>&copy; 弁当屋 あまね</p>
+        </div>
+
+    </footer>
+
+    <!-- =========================
+         IMAGE MODAL（Bootstrap Modal）
+    ========================== -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="modalName" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="閉じる">×</button>
+
+                <img id="modalImage" src="" alt="">
+
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Bundle (Popper込み) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

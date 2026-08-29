@@ -61,30 +61,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* -------------------------------------------------
-       メニュータブ（menu.html でカテゴリー切り替えを行う場合に使用）
-       .menu-tab に data-target="カテゴリー名" を、
-       商品カードに data-category="カテゴリー名" を設定して使います。
+       カテゴリタブ（menu.html）
+       タブはページ内リンク（#bento など）でカテゴリー見出しへスクロール。
+       画面内に入っているカテゴリーに応じてタブの active 表示を切り替えます。
     ------------------------------------------------- */
     var menuTabs = document.querySelectorAll('.menu-tab');
+    var menuSections = document.querySelectorAll('.menu-category-section');
 
-    if (menuTabs.length) {
-        var menuItems = document.querySelectorAll('[data-category]');
+    if (menuTabs.length && menuSections.length) {
 
+        var setActiveTab = function (id) {
+            menuTabs.forEach(function (tab) {
+                var isMatch = tab.getAttribute('href') === '#' + id;
+                tab.classList.toggle('is-active', isMatch);
+            });
+        };
+
+        /* タブをクリックした瞬間はそのタブをすぐアクティブに */
         menuTabs.forEach(function (tab) {
             tab.addEventListener('click', function () {
-                menuTabs.forEach(function (t) { t.classList.remove('is-active'); });
-                tab.classList.add('is-active');
-
-                var target = tab.dataset.target;
-
-                menuItems.forEach(function (item) {
-                    var show = target === 'all' || item.dataset.category === target;
-                    item.closest('.col-12, .col-md-6, .col-lg-4') ?
-                        (item.closest('.col-12, .col-md-6, .col-lg-4').style.display = show ? '' : 'none') :
-                        (item.style.display = show ? '' : 'none');
-                });
+                setActiveTab(tab.getAttribute('href').replace('#', ''));
             });
         });
+
+        /* スクロールに合わせて自動で切り替え */
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        setActiveTab(entry.target.id);
+                    }
+                });
+            }, {
+                rootMargin: '-45% 0px -50% 0px',
+                threshold: 0
+            });
+
+            menuSections.forEach(function (section) {
+                observer.observe(section);
+            });
+        }
     }
 
 });
