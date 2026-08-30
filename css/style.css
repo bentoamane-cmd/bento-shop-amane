@@ -384,20 +384,31 @@ img {
 
 .hero-image {
     position: relative;
+    width: 100%;
     aspect-ratio: 4 / 3;
 }
 
 .hero-image .image-placeholder {
+    display: block;
+    width: 100%;
     height: 100%;
     background-color: var(--color-navy-light);
-    color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+}
+
+.hero-image .image-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* 縦書きの装飾テキスト（メインビジュアルのアクセント） */
 .hero-vertical-text {
     display: none;
     position: absolute;
-    top: 2rem;
+    top: 14rem;
     left: 1.5rem;
     writing-mode: vertical-rl;
     font-family: var(--font-display);
@@ -514,13 +525,30 @@ img {
 }
 
 .product-image {
+    position: relative;
     aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-cream-dark);
+}
+
+.product-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .product-image .image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     background-color: var(--color-cream-dark);
     color: var(--color-text-light);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .product-info {
@@ -532,7 +560,7 @@ img {
 .product-badge {
     position: absolute;
     top: -22px;
-    right: 1.4rem;
+    right: 1.2rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -541,7 +569,7 @@ img {
     border-radius: 50%;
     background-color: var(--color-accent);
     color: var(--color-white);
-    font-size: 0.72rem;
+    font-size: 0.70rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     border: 2px solid var(--color-white);
@@ -919,6 +947,48 @@ img {
     text-align: center;
 }
 
+.instagram-comingsoon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 0 auto 1.1rem;
+    max-width: 620px;
+}
+
+.instagram-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+.instagram-title {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text-light);
+    white-space: nowrap;
+}
+
+.instagram-note {
+    margin: 0 0 1.8rem;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.disabled-link {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.disabled-link:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 
 /* =========================
    フッター
@@ -1056,6 +1126,32 @@ img {
 }
 
 @media (max-width: 767.98px) {
+    .hero {
+        padding-top: 0;
+    }
+
+    .hero-content {
+        padding: 2.2rem 1.25rem 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2rem, 1.6rem + 2vw, 2.6rem);
+    }
+
+    .hero-text {
+        font-size: 0.94rem;
+        line-height: 1.8;
+    }
+
+    .hero-image {
+        aspect-ratio: 4 / 3;
+    }
+
     .about-text {
         font-size: clamp(1.02rem, 0.95rem + 0.9vw, 1.12rem);
         line-height: 1.9;
@@ -1065,6 +1161,10 @@ img {
     .about-text p {
         margin-bottom: 1.1rem;
     }
+
+    .about-text p br {
+        display: none;
+    }
 }
 
 /* 電話番号目立つように */
@@ -1072,5 +1172,6 @@ img {
     .footer-shop a {
         font-size: 1rem;
         padding: 0.1rem 0;
+        text-decoration: underline;
     }
 }

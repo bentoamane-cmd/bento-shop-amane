@@ -6,6 +6,39 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* -------------------------------------------------
+       商品カード画像：カード本体にも画像を直接表示
+    ------------------------------------------------- */
+    document.querySelectorAll('.product-card').forEach(function (card) {
+        var imageWrap = card.querySelector('.product-image');
+        var placeholder = imageWrap ? imageWrap.querySelector('.image-placeholder') : null;
+        var imageSrc = card.dataset.image || '';
+        var name = card.dataset.name || '商品画像';
+
+        if (!imageWrap) {
+            return;
+        }
+
+        var img = imageWrap.querySelector('img.product-card-image');
+
+        if (!img && imageSrc) {
+            img = document.createElement('img');
+            img.className = 'product-card-image';
+            img.alt = name;
+            imageWrap.appendChild(img);
+        }
+
+        if (img) {
+            img.src = imageSrc;
+            img.alt = name;
+            img.style.display = 'block';
+        }
+
+        if (placeholder) {
+            placeholder.style.display = imageSrc ? 'none' : 'flex';
+        }
+    });
+
+    /* -------------------------------------------------
        スマホメニュー：リンクをタップしたら自動で閉じる
     ------------------------------------------------- */
     var mobileNavEl = document.getElementById('mobileNav');
