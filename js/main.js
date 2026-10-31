@@ -5,6 +5,39 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+     /* -------------------------------------------------
+         メニュー価格：data-price-keyで指定した価格変数を表示
+     ------------------------------------------------- */
+    var PRICE_700 = 700;
+    var PRICE_650 = 650;
+    var PRICE_850 = 850;
+    var PRICE_800 = 800;
+    var PRICE_750 = 750;
+
+    var MENU_PRICES = {
+        PRICE_700: PRICE_700,
+        PRICE_650: PRICE_650,
+        PRICE_850: PRICE_850,
+        PRICE_800: PRICE_800,
+        PRICE_750: PRICE_750
+    };
+
+    document.querySelectorAll('.product-card[data-price]').forEach(function (card) {
+        var priceElement = card.querySelector('.product-price');
+        var priceKey = priceElement ? priceElement.dataset.priceKey : '';
+        var price = priceKey ? MENU_PRICES[priceKey] : undefined;
+        if (typeof price !== 'number') {
+            return;
+        }
+
+        var formattedPrice = price + '円（税込）';
+        card.dataset.price = formattedPrice;
+
+        if (priceElement) {
+            priceElement.innerHTML = price + '円<span>（税込）</span>';
+        }
+    });
+
     /* -------------------------------------------------
        商品カード画像：カード本体にも画像を直接表示
     ------------------------------------------------- */
