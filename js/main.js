@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var imageSrc = card.dataset.image || '';
             var name = card.dataset.name || '';
-            var price = card.dataset.price || '';
+            var priceElement = card.querySelector('.product-price');
+            var price = priceElement ? priceElement.textContent.trim() : '';
             var description = card.dataset.description || '';
 
             modalImage.src = imageSrc;
